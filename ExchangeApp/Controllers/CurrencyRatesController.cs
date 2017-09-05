@@ -27,7 +27,7 @@ namespace ExchangeApp.Controllers
 
     public class CurrencyRatesController : ApiController
     {
-        [OutputCache( Duration = 120)]
+        [OutputCache( Duration = 120, VaryByParam = "currencyCode" )]
         public JsonResult<Result> PostRate(decimal amount, string currencyCode)
         {
             Result result = new Result();
