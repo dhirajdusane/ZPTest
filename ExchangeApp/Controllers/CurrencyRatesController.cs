@@ -43,7 +43,7 @@ namespace ExchangeApp.Controllers
 
             if (rate == null || !rate.Rate.HasValue)
             {
-                result.returncode = 0;
+                result.returncode = (int) HttpStatusCode.BadRequest;
                 result.err = "Unable to get conversion rate. Only Support {USD,GBP,AUD,EUR,CAD,SGD}";
                 result.timestamp = "0";
                 return this.Json(result);
