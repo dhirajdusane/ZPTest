@@ -31,6 +31,14 @@ namespace ExchangeApp
             {
                 FetchRates();
             }
+            catch (Exception ex)
+            {
+                using (EventLog log = new EventLog("DaemonTimerThread"))
+                {
+                    log.Source = "DaemonTimerThread";
+                    log.WriteEntry(ex.Message + "\n" + ex.StackTrace, EventLogEntryType.Error);
+                }
+            }
             finally
             {
                 if (timer != null)
