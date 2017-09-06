@@ -31,10 +31,6 @@ namespace ExchangeApp
             {
                 FetchRates();
             }
-            catch (Exception ex)
-            {
-                
-            }
             finally
             {
                 if (timer != null)
